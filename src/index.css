@@ -1,0 +1,13 @@
+@import "tailwindcss";
+/* colors named via www.color-name.com */
+@theme {
+    --color-max-green-yellow: #C8EE44;
+    --color-dark-gunmetal: #1B212D;
+    --color-rhythm:#78778B;
+    --color-onyx:#363A3F;
+    --color-davy-grey:#4E5257;
+    --color-bright-grey:#EBE8E8;
+    --color-cadet-grey:#929EAE;
+    --color-cultured:#F8F8F8;
+    --color-lotion:#FAFAFA;
+}
