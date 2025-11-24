@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Düzeltilmiş Düzen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <aside class="bg-green-500 w-64 flex-shrink-0 p-4">
+            <p class="text-white text-3xl font-bold h-full flex items-center justify-center">sidebar</p>
+        </aside>
+
+        <div class="flex flex-col flex-grow">
+            
+            <header class="bg-cyan-400 p-4 flex-shrink-0">
+                <h1 class="text-center text-lg font-bold">Header bar</h1>
+            </header>
+
+            <main class="flex flex-grow overflow-hidden">
+                
+                <div class="flex-1 bg-gray-300 p-4 border-r-4 border-black">
+                    <p class="font-semibold text-center">content column</p>
+                    <div class="h-full overflow-y-auto">
+                        </div>
+                </div>
+
+                <div class="flex-2 bg-gray-300 p-4">
+                    <p class="font-semibold text-center">content column</p>
+                    <div class="h-full overflow-y-auto">
+                        </div>
+                </div>
+            </main>
+        </div>
+
+    </div>
+
+</body>
+</html>

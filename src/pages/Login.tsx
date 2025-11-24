@@ -1,6 +1,5 @@
 import React from "react";
 import heroImage from "../assets/Image.png";
-import magloLogo from "../assets/maglo-logo.svg";
 import FormInput from "../components/FormInput";
 import Text from "../components/Text";
 import Button from "../components/Button";
@@ -17,22 +16,18 @@ function Login() {
             <MagloLogo/>
           </div>
           <div>
-            <Text size="text-3xl">Sign In</Text>
-            <Text color="text-rhythm" className="mb-9">
+            <Text className="text-3xl">Sign In</Text>
+            <Text className="mb-9 text-rhythm">
               Welcome back! Please enter your details
             </Text>
             <Text
-              size="text-sm"
-              weight="font-medium"
-              className="mt-2.5 mb-2.5"
+              className="mt-2.5 mb-2.5 text-sm font-medium"
             >
               Email
             </Text>className
             <FormInput type="text" />
             <Text
-              size="text-sm"
-              weight="font-medium"
-              className="mt-2.5 mb-2.5"
+              className="mt-2.5 mb-2.5 text-sm font-medium"
             >
               Password
             </Text>

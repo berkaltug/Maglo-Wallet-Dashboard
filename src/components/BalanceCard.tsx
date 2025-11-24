@@ -1,5 +1,6 @@
 import React from "react";
 import Text from "./Text";
+import { twMerge } from "tailwind-merge";
 
 interface BalanceCardProps {
   icon: string;
@@ -14,14 +15,19 @@ const BalanceCard: React.FC<BalanceCardProps> = ({
   amount,
   title,
   icon,
+  className,
 }) => {
-  const textColor=dark ? "text-white" : "text-dark-gunmetal"
-  const circleColor = dark ? "bg-davy-grey" : "bg-bright-grey"
-
+  const textColor = dark ? "text-white" : "text-dark-gunmetal";
+  const circleColor = dark ? "bg-davy-grey" : "bg-bright-grey";
+  const bgColor = dark ? "bg-onyx" : "bg-cultured";
   return (
-    <div className={"w-55.5 h-26.25 bg-onyx rounded-[10px] flex items-center"}>
+    <div
+      className={twMerge(`${bgColor} w-55.5 h-26.25 rounded-[10px] flex items-center`,className)}
+    >
       <div className="p-5 h-full flex items-center justify-center">
-        <div className={`${circleColor} w-10.5 h-10.5 bg-davy-grey flex justify-center items-center rounded-full`}>
+        <div
+          className={`${circleColor} w-10.5 h-10.5 flex justify-center items-center rounded-full`}
+        >
           <img src={icon} className="w-5 h-5" alt="" />
         </div>
       </div>

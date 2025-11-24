@@ -17,30 +17,24 @@ function Register() {
             <span className="font-(Gordita) font-bold text-lg m-2">Maglo.</span>
           </div>
           <div>
-            <Text size="text-3xl">Create new account</Text>
-            <Text color="text-rhythm" className="mb-9">
+            <Text className="text-3xl">Create new account</Text>
+            <Text className="mb-9 text-rhythm">
               Welcome back! Please enter your details
             </Text>
             <Text
-              size="text-sm"
-              weight="font-medium"
-              className="mt-2.5 mb-2.5"
+              className="text-sm font-medium mt-2.5 mb-2.5"
             >
               Full Name
             </Text>
             <FormInput type="text" />
             <Text
-              size="text-sm"
-              weight="font-medium"
-              className="mt-2.5 mb-2.5"
+              className="text-sm font-medium mt-2.5 mb-2.5"
             >
               Email
             </Text>
             <FormInput type="text" />
             <Text
-              size="text-sm"
-              weight="font-medium"
-              className="mt-2.5 mb-2.5"
+              className="text-sm font-medium mt-2.5 mb-2.5"
             >
               Password
             </Text>

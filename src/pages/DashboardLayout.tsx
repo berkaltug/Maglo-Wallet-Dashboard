@@ -10,52 +10,71 @@ import SettingsSVG from "../assets/Settings.svg";
 import HelpSVG from "../assets/Help.svg";
 import LogoutSVG from "../assets/Logout.svg";
 import { twMerge } from "tailwind-merge";
+import SearchSVG from "../assets/search.svg";
+import NotificationSVG from "../assets/notification.svg";
+import CadetDownSVG from '../assets/Dropdown.svg';
 
 const DashboardLayout = () => {
-    const defaultLinkStyle="h-12 bg-lotion flex items-center rounded-[10px] pl-4.25 pr.4.25"
+  const defaultLinkStyle =
+    "h-12 bg-lotion flex items-center rounded-[10px] pl-4.25 pr.4.25";
   return (
-    <div className="w-screen h-screen">
+    <div className="w-screen h-screen flex">
       {/* sidebar */}
-      <div className="h-full w-62.5 pt-7.5 pl-6.25 pr-6.25 pb-7.5 bg-lotion fixed md:static -translate-x-62 md:translate-x-0 flex flex-col justify-between">
+      <div className="h-full w-62.5 pt-7.5 pl-6.25 pr-6.25 pb-7.5 bg-lotion fixed md:static -translate-x-62 md:translate-x-0 shrink-0 flex flex-col justify-between">
         <div>
           <MagloLogo />
           <ul className="mt-10">
-            <li className={twMerge(defaultLinkStyle,"bg-max-green-yellow")} >
+            <li className={twMerge(defaultLinkStyle, "bg-max-green-yellow")}>
               <img src={DashboardSVG} className="w-5 h-5 mr-3" />
-              <Text>Dashboard</Text>
+              <Text className="text-sm font-medium">Dashboard</Text>
             </li>
-            <li className={defaultLinkStyle} >
+            <li className={defaultLinkStyle}>
               <img src={TransactionsSVG} className="w-5 h-5 mr-3" />
-              <Text>Transactions</Text>
+              <Text className="text-sm font-medium">Transactions</Text>
             </li>
-            <li className={defaultLinkStyle} >
+            <li className={defaultLinkStyle}>
               <img src={Invoices} className="w-5 h-5 mr-3" />
-              <Text>Invoices</Text>
+              <Text className="text-sm font-medium">Invoices</Text>
             </li>
-            <li className={defaultLinkStyle} >
+            <li className={defaultLinkStyle}>
               <img src={MyWalletsSVG} className="w-5 h-5 mr-3" />
-              <Text>My Wallets</Text>
+              <Text className="text-sm font-medium">My Wallets</Text>
             </li>
-            <li className={defaultLinkStyle} >
+            <li className={defaultLinkStyle}>
               <img src={SettingsSVG} className="w-5 h-5 mr-3" />
-              <Text>Settings</Text>
+              <Text className="text-sm font-medium">Settings</Text>
             </li>
           </ul>
         </div>
         <div className="self">
           <ul>
-            <li className={defaultLinkStyle} >
+            <li className={defaultLinkStyle}>
               <img src={HelpSVG} className="w-5 h-5 mr-3" />
-              <Text>Help</Text>
+              <Text className="text-sm font-medium">Help</Text>
             </li>
-            <li className={defaultLinkStyle} >
+            <li className={defaultLinkStyle}>
               <img src={LogoutSVG} className="w-5 h-5 mr-3" />
-              <Text>Logout</Text>
+              <Text className="text-sm font-medium">Logout</Text>
             </li>
           </ul>
         </div>
       </div>
-      <Outlet />
+      <div className="flex flex-col grow pl-10 pr-10 pt-7.5 pb-7.5">
+        {/* header */}
+        <div className="flex self-stretch h-12 items-center justify-between">
+          <Text className="font-semibold text-[25px]">Dashboard</Text>
+          <div className="flex h-12 items-center">
+            <img src={SearchSVG} className="h-6 w-6 mr-11.25" alt="" />
+            <img src={NotificationSVG}  className="h-6 w-6 mr-11.25" alt="" />
+            <div className="flex items-center h-full bg-lotion rounded-full pr-2 pl-2">
+                <div className="h-9 w-9 rounded-full bg-cadet-grey mr-4"></div>
+                <Text className="mr-4">Name Surname</Text>
+                <button><img src={CadetDownSVG} className="h-4 w-4" /></button>
+            </div>
+          </div>
+        </div>
+        <Outlet />
+      </div>
     </div>
   );
 };
