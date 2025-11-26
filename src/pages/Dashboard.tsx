@@ -31,7 +31,10 @@ import {
 
 const Dashboard = () => {
   const dispatch = useAppDispatch();
-  const { data: summaryData } = useQuery<SummarySuccess, ApiError>({
+  const { isPending: summaryPending, data: summaryData } = useQuery<
+    SummarySuccess,
+    ApiError
+  >({
     queryKey: ["summary"],
     queryFn: getFinancialSummary,
   });
@@ -52,7 +55,10 @@ const Dashboard = () => {
     dispatch(setWorkingCapital(capitalData?.data?.data));
   }, [capitalData, dispatch]);
 
-  const { data: walletsData } = useQuery<WalletSuccess, ApiError>({
+  const { isPending: walletsPending, data: walletsData } = useQuery<
+    WalletSuccess,
+    ApiError
+  >({
     queryKey: ["wallets"],
     queryFn: getWallets,
   });
@@ -61,11 +67,11 @@ const Dashboard = () => {
     dispatch(setCards(walletsData?.data.cards));
   }, [walletsData, dispatch]);
 
-  const { isPending:transactionsPending,data: transactionsData } = useQuery<
+  const { isPending: transactionsPending, data: transactionsData } = useQuery<
     RecentTransactionsSuccess,
     ApiError
   >({
-    queryKey: ["transactions", 5],
+    queryKey: ["transactions", 3],
     queryFn: ({ queryKey }) => getRecentTransactions(queryKey[1] as number),
   });
 
@@ -73,12 +79,13 @@ const Dashboard = () => {
     dispatch(setRecentTransactions(transactionsData?.data.transactions));
   }, [transactionsData, dispatch]);
 
-  const { isPending:transfersPending,data: transfersData } = useQuery<ScheduledTransfersSuccess, ApiError>(
-    {
-      queryKey: ["transfers"],
-      queryFn: getScheduledTransfers,
-    }
-  );
+  const { isPending: transfersPending, data: transfersData } = useQuery<
+    ScheduledTransfersSuccess,
+    ApiError
+  >({
+    queryKey: ["transfers"],
+    queryFn: getScheduledTransfers,
+  });
 
   useEffect(() => {
     dispatch(setScheduledTransfers(transfersData?.data.transfers));
@@ -99,21 +106,29 @@ const Dashboard = () => {
   return (
     <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-10">
       <div className="md:col-span-2">
-        {summary && (
-          <BalanceRow
-            totalBalance={summary.totalBalance}
-            totalExpense={summary?.totalExpense}
-            totalSavings={summary?.totalSavings}
-          />
-        )}
-        {workingCapitals && !capitalsPending && (
-          <CapitalChart workingCapitals={workingCapitals} />
-        )}
-          <RecentTransactions transactions={recentTransactions} pending={transactionsPending}/>
+        <BalanceRow
+          totalBalance={summary?.totalBalance}
+          totalExpense={summary?.totalExpense}
+          totalSavings={summary?.totalSavings}
+          pending={summaryPending}
+        />
+
+        <CapitalChart
+          workingCapitals={workingCapitals}
+          pending={capitalsPending}
+        />
+
+        <RecentTransactions
+          transactions={recentTransactions}
+          pending={transactionsPending}
+        />
       </div>
       <div className="md:col-span-1">
-        {cards && cards.length>0 && <CardSchema cards={cards} />}
-          <ScheduledTransfers transfers={scheduledTransfers} pending={transfersPending} />
+        {<CardSchema cards={cards} pending={walletsPending} />}
+        <ScheduledTransfers
+          transfers={scheduledTransfers}
+          pending={transfersPending}
+        />
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ const RecentTransactions: React.FC<RecentTransactionsProps> = ({
   pending,
 }) => {
   return (
-    <div className="border rounded-[10px] border-cultured pt-4 pb-4 pl-6 pr-6">
+    <div className="border rounded-[10px] border-cultured pt-4 pb-4 pl-6 pr-6 mt-3.75 mb-3.75">
       <SectionTitle moreButton={false} title="Recent Transaction" />
       {pending && <Skeleton count={5} height={40} />}
       {!pending && (

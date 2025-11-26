@@ -37,7 +37,6 @@ function Login() {
     mutationFn: login,
     mutationKey: ["login"],
     onSuccess: (response) => {
-      console.log("login response in mutation",response)
       dispatch(loggedIn(response.data))
       navigate("/dashboard");
     },

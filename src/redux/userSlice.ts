@@ -1,10 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
+import type { User } from "../services/userTypes";
 
-const initialState={
+export interface UserState {
+     user: User|null;
+    isAuthenticated:boolean;
+    accessToken:string|null;
+}
+
+const initialState:UserState={
     user:null,
     isAuthenticated:false,
     accessToken:null
 }
+
 export const userSlice=createSlice({
     name:"userSlice",
     initialState,

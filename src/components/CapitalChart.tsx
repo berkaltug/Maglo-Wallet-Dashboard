@@ -11,9 +11,11 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import type { CapitalInterval } from '../services/financialTypes';
+import Skeleton from 'react-loading-skeleton';
 
 interface CapitalChartProps {
   workingCapitals:Array<CapitalInterval>
+  pending:boolean
 }
 
 ChartJS.register(CategoryScale,
@@ -26,13 +28,14 @@ ChartJS.register(CategoryScale,
 
   const options = {
   responsive: true,
+  maintainAspectRatio:false,
   plugins: {
     legend: {display:false},
   },
 };
 
 
-  const CapitalChart:React.FC<CapitalChartProps> = ({workingCapitals}) => {
+  const CapitalChart:React.FC<CapitalChartProps> = ({workingCapitals,pending}) => {
     const labels=workingCapitals?.map(item=>item.month)
     const incomeList=workingCapitals?.map(item=>item.income)
     const expenseList=workingCapitals?.map(item=>item.expense)
@@ -52,10 +55,12 @@ ChartJS.register(CategoryScale,
       }
       ]
     }
+
   return (
-    <div className="border rounded-[10px] border-cultured pt-4 pb-4 pl-6 pr-6 max-h-72.5 w-[716px]">
+    <div className="border rounded-[10px] border-cultured pt-4 pb-4 pl-6 pr-6 mb-3.75 mt-3.75 max-h-72.5">
     <div>CapitalChart</div>
-    <Line options={options} data={data} />
+    {pending && <Skeleton count={1} height={194}/>}
+    {!pending && <Line options={options} data={data} />}
     </div>
   )
 }

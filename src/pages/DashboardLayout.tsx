@@ -13,8 +13,9 @@ import { twMerge } from "tailwind-merge";
 import SearchSVG from "../assets/search.svg";
 import NotificationSVG from "../assets/notification.svg";
 import CadetDownSVG from "../assets/Dropdown.svg";
-import { useAppDispatch } from "../redux/store";
+import { useAppDispatch, useAppSelector } from "../redux/store";
 import { loggedOut } from "../redux/userSlice";
+import Skeleton from "react-loading-skeleton";
 
 const DashboardLayout = () => {
   const dispatch = useAppDispatch();
@@ -25,11 +26,12 @@ const DashboardLayout = () => {
     dispatch(loggedOut());
     navigate("/");
   };
+  const user = useAppSelector((state) => state.user.user);
 
   return (
-    <div className="w-screen h-screen flex">
+    <div className="w-screen min-h-screen flex">
       {/* sidebar */}
-      <div className="h-full w-62.5 pt-7.5 pl-6.25 pr-6.25 pb-7.5 bg-lotion fixed md:static -translate-x-62 md:translate-x-0 shrink-0 flex flex-col justify-between">
+      <div className="w-62.5 pt-7.5 pl-6.25 pr-6.25 pb-7.5 bg-lotion fixed md:static -translate-x-62 md:translate-x-0 shrink-0 flex flex-col justify-between">
         <div>
           <MagloLogo />
           <ul className="mt-10">
@@ -77,7 +79,8 @@ const DashboardLayout = () => {
             <img src={NotificationSVG} className="h-6 w-6 mr-11.25" alt="" />
             <div className="flex items-center h-full bg-lotion rounded-full pr-2 pl-2">
               <div className="h-9 w-9 rounded-full bg-cadet-grey mr-4"></div>
-              <Text className="mr-4">Name Surname</Text>
+              {!user && <Skeleton count={1}/>}
+              {user && <Text className="mr-4">{user.fullName}</Text>}
               <button>
                 <img src={CadetDownSVG} className="h-4 w-4" />
               </button>
