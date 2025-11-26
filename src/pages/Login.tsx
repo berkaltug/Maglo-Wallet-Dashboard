@@ -53,12 +53,11 @@ function Login() {
 
   return (
     <div className="flex w-screen min-h-screen flex-col md:flex-row">
-      <div className="flex-1 flex justify-center items-stretch">
-        <div className="relative flex flex-col justify-center">
-          <div className="absolute top-10 ">
+      <div className="flex-1 grid  grid-cols-[1fr_auto_1fr] grid-rows-[1fr_4fr_1fr]">
+          <div className="row-1 col-2  pt-4 md:pt-10 lg:pt-17.5">
             <MagloLogo />
           </div>
-          <div>
+          <div className="row-2 col-2 self-center justify-self-center">
             <Text className="text-3xl">Sign In</Text>
             <Text className="mb-9 text-rhythm">
               Welcome back! Please enter your details
@@ -93,10 +92,9 @@ function Login() {
             <GoogleButton onPress={() => {}} className="mt-4" />
             <AccountQuestionButton onPress={goSignUp} />
           </div>
-        </div>
       </div>
-      <div className="md:block hidden">
-        <img src={heroImage} className="h-screen" alt="" />
+      <div className="xl:block hidden">
+        <img src={heroImage} className="min-h-screen" alt="" />
       </div>
     </div>
   );

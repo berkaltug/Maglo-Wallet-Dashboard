@@ -15,7 +15,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={twMerge("block w-101 rounded-[10px] pb-3.5 pt-3.5 pr-5 pl-5 flex justify-center items-center",className)}
+      className={twMerge("block max-w-101 rounded-[10px] pb-3.5 pt-3.5 pr-5 pl-5 flex justify-center items-center",className)}
       onClick={onPress}
     >
       {signin ? (

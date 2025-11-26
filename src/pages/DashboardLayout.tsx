@@ -31,7 +31,7 @@ const DashboardLayout = () => {
   return (
     <div className="w-screen min-h-screen flex">
       {/* sidebar */}
-      <div className="w-62.5 pt-7.5 pl-6.25 pr-6.25 pb-7.5 bg-lotion fixed md:static -translate-x-62 md:translate-x-0 shrink-0 flex flex-col justify-between">
+      <div className="w-62.5 pt-7.5 pl-6.25 pr-6.25 pb-7.5 bg-lotion fixed lg:static -translate-x-62 lg:translate-x-0 shrink-0 flex flex-col justify-between">
         <div>
           <MagloLogo />
           <ul className="mt-10">
