@@ -6,7 +6,7 @@ interface BalanceCardProps {
   icon: string;
   dark: boolean;
   title: string;
-  amount: number;
+  amount: number | string;
   className?: string;
 }
 
