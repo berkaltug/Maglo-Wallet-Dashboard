@@ -14,10 +14,11 @@ const RecentTransactions: React.FC<RecentTransactionsProps> = ({
 }) => {
   return (
     <div className="border rounded-[10px] border-cultured pt-4 pb-4 pl-6 pr-6 mt-3.75 mb-3.75">
-      <SectionTitle moreButton={false} title="Recent Transaction" />
+      <SectionTitle moreButton={false} title="Recent Transaction"/>
       {pending && <Skeleton count={5} height={40} />}
       {!pending && (
-        <table className="justify-self-stretch">
+        <div className="overflow-x-auto">
+           <table className="justify-self-stretch">
           <thead>
             <tr>
               <th className="text-left text-xs font-semibold text-cadet-grey">
@@ -43,6 +44,8 @@ const RecentTransactions: React.FC<RecentTransactionsProps> = ({
             ))}
           </tbody>
         </table>
+        </div>
+       
       )}
     </div>
   );

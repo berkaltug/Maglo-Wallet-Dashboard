@@ -15,7 +15,6 @@ export interface CardSchemaProps {
 }
 
 const CardSchema: React.FC<CardSchemaProps> = ({ cards, pending }) => {
-  
   return (
     <>
       <SectionTitle title="Wallet" />

@@ -20,7 +20,7 @@ const BalanceRow: React.FC<BalanceRowProps> = ({
   pending,
 }) => {
   return (
-    <div className="flex pt-7.5 pb-7.5 lg:justify-between justify-around flex-wrap">
+    <div className="flex pt-7.5 pb-7.5  justify-around flex-wrap">
       <BalanceCard
         className={"mb-2"}
         dark={true}

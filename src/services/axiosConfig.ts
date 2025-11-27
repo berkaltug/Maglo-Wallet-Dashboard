@@ -1,6 +1,7 @@
 import axios from "axios";
 import { store } from "../redux/store";
 import { loggedOut, refreshToken } from "../redux/userSlice";
+import { refreshAccessToken } from "./userService";
 
 export const apiClient = axios.create({
   baseURL: import.meta.env.VITE_BASE_API,
@@ -8,10 +9,9 @@ export const apiClient = axios.create({
   withCredentials:true
 });
 
-const refreshAccessToken = async () => {
+const refresh = async () => {
   try {
-    const response = await apiClient.post("users/refresh-token");
-    return response.data;
+    return await refreshAccessToken();
   } catch (error) {
     store.dispatch(loggedOut());
     window.location.href = "/";
@@ -23,7 +23,6 @@ apiClient.interceptors.request.use((config) => {
   const accessToken = store.getState().user.accessToken;
   
   if (accessToken && !config?.url?.includes("users/refresh-token")) {
-    
     config.headers["Authorization"] = `Bearer ${accessToken}`;
   }
   return config;
@@ -38,8 +37,9 @@ async (error)=>{
     if(error.response?.status === 401 && !request._retry){
         request._retry=true
         try{
-            const response=await refreshAccessToken();
-            const newToken=response.accessToken
+            const newToken=await refresh();
+            console.log("inside response interceptor",newToken)
+            
             store.dispatch(refreshToken(newToken))
             request.headers["Authorization"] = `Bearer ${newToken}`;
             return apiClient(request);

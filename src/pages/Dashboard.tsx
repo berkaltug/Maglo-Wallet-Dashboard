@@ -124,7 +124,7 @@ const Dashboard = () => {
         />
       </div>
       <div className="md:col-span-1">
-        {<CardSchema cards={cards} pending={walletsPending} />}
+        <CardSchema cards={cards} pending={walletsPending} />
         <ScheduledTransfers
           transfers={scheduledTransfers}
           pending={transfersPending}

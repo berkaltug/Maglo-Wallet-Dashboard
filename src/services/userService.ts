@@ -33,3 +33,8 @@ export const getProfile = async ()=>{
   const response=await apiClient.get('users/profile')
   return response.data;
 }
+
+export const refreshAccessToken  = async ()=>{
+  const response=await apiClient.post('users/refresh-token');
+  return response.data;
+}
