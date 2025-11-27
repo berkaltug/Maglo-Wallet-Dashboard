@@ -29,7 +29,7 @@ const DashboardLayout = () => {
     navigate("/");
   };
   const user = useAppSelector((state) => state.user.user);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const close = () => {
     setSidebarOpen(false);
   };

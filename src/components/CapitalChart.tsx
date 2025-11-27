@@ -71,7 +71,7 @@ const CapitalChart: React.FC<CapitalChartProps> = ({
         <div className="flex-1 flex">
           <Text className="font-semibold text-lg">Working Capital</Text>
         </div>
-        <div className="flex-1 flex justify-between">
+        <div className="flex-1 flex  flex-wrap justify-between">
           <div className="flex items-center">
             <div className="w-2 h-2 rounded bg-emerald m-1"></div>
             <Text className="text-xs mr-2">Income</Text>
@@ -81,7 +81,7 @@ const CapitalChart: React.FC<CapitalChartProps> = ({
           <select className="bg-cultured">
             <option>Last 6 months</option>
             <option>Last 7 days</option>
-            </select>
+          </select>
         </div>
       </div>
       {pending && <Skeleton count={1} height={194} />}
