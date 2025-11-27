@@ -1,4 +1,4 @@
-import heroImage from "../assets/Image.png";
+import heroImage from "../assets/image.png";
 import FormInput from "../components/FormInput";
 import Text from "../components/Text";
 import Button from "../components/Button";
