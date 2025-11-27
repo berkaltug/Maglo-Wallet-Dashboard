@@ -1,18 +1,24 @@
 @import "tailwindcss";
+@font-face {
+  font-family: Kumbh_Sans;
+  src: url("./assets/fonts/KumbhSans-VariableFont_YOPQ\,wght.ttf");
+}
+
 /* colors named via www.color-name.com */
 @theme {
-    --color-max-green-yellow: #C8EE44;
-    --color-dark-gunmetal: #1B212D;
-    --color-rhythm:#78778B;
-    --color-onyx:#363A3F;
-    --color-davy-grey:#4E5257;
-    --color-bright-grey:#EBE8E8;
-    --color-cadet-grey:#929EAE;
-    --color-cultured:#F8F8F8;
-    --color-lotion:#FAFAFA;
-    --color-quartz:#4A4A49;
-    --color-raisin-black:#20201F;
-    --color-granite-grey:#626260;
-    --color-antiflash-white:#f2f3f0;
-    --color-emerald:#29A073;
+  --color-max-green-yellow: #c8ee44;
+  --color-dark-gunmetal: #1b212d;
+  --color-rhythm: #78778b;
+  --color-onyx: #363a3f;
+  --color-davy-grey: #4e5257;
+  --color-bright-grey: #ebe8e8;
+  --color-cadet-grey: #929eae;
+  --color-cultured: #f8f8f8;
+  --color-lotion: #fafafa;
+  --color-quartz: #4a4a49;
+  --color-raisin-black: #20201f;
+  --color-granite-grey: #626260;
+  --color-antiflash-white: #f2f3f0;
+  --color-emerald: #29a073;
+  --font-kumbh-sans: Kumbh_Sans;
 }

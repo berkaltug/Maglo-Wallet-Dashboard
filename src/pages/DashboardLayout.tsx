@@ -36,21 +36,20 @@ const DashboardLayout = () => {
   const open = () => {
     setSidebarOpen(true);
   };
- 
-  
+
   return (
     <div className="w-screen min-h-screen flex">
       {/* sidebar */}
       <div
         className={`w-62 pt-7.5 pl-6.25 pr-6.25 pb-7.5 bg-lotion
-           fixed h-full lg:h-auto lg:static transition-transform duration-300 ease-in-out shrink-0
+           fixed h-full xl:h-auto xl:static transition-transform duration-300 ease-in-out shrink-0
             flex flex-col justify-between 
-            ${sidebarOpen ? "translate-x-0 ": "-translate-x-full"}`}
+            ${sidebarOpen ? "translate-x-0 " : "-translate-x-full"}`}
       >
         <div>
           <div className="flex justify-between">
             <MagloLogo />
-            <button className="cursor-pointer lg:hidden" onClick={close}>
+            <button className="cursor-pointer xl:hidden" onClick={close}>
               <img src={CrossSVG} className="w-6 h-6" />
             </button>
           </div>
@@ -89,14 +88,19 @@ const DashboardLayout = () => {
             </li>
           </ul>
         </div>
+        <button
+          className={`absolute -right-14 top-27 p-4  bg-slate-100 transition-[opacity] duration-500 ease-in-out border-r-xl cursor-pointer hover:shadow xl:hidden ${
+            sidebarOpen ? "opacity-0" : "opacity-100"
+          }`}
+          onClick={open}
+        >
+          <img src={MenuSVG} className="w-6 h-6" />
+        </button>
       </div>
       <div className="flex flex-col grow pl-10 pr-10 pt-7.5 pb-7.5">
         {/* header */}
         <div className="flex self-stretch h-12 items-center justify-between">
-          <button className="cursor-pointer hover:shadow lg:hidden" onClick={open}>
-            <img src={MenuSVG} className="w-6 h-6" />
-          </button>
-          <Text className="font-semibold text-[25px] invisible sm:visible">Dashboard</Text>
+          <Text className="font-semibold text-[25px]">Dashboard</Text>
           <div className="flex h-12 items-center">
             <img src={SearchSVG} className="h-6 w-6 md:mr-11.25" alt="" />
             <img src={NotificationSVG} className="h-6 w-6 md:mr-11.25" alt="" />

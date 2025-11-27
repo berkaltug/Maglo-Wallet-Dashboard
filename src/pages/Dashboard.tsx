@@ -104,8 +104,8 @@ const Dashboard = () => {
   const cards = useAppSelector((state) => state.finance.cards);
 
   return (
-    <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-10">
-      <div className="md:col-span-2">
+    <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-10">
+      <div className="lg:col-span-2">
         <BalanceRow
           totalBalance={summary?.totalBalance}
           totalExpense={summary?.totalExpense}
@@ -123,7 +123,7 @@ const Dashboard = () => {
           pending={transactionsPending}
         />
       </div>
-      <div className="md:col-span-1">
+      <div className="lg:col-span-1">
         <CardSchema cards={cards} pending={walletsPending} />
         <ScheduledTransfers
           transfers={scheduledTransfers}

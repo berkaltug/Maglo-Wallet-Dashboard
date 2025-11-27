@@ -8,7 +8,7 @@ interface TextProps {
 }
 const Text:React.FC<TextProps> = ({className,children}) => {
   return (
-    <div className={twMerge(`font-(Kumbh_Sans) text-dark-gunmetal text-base font-normal text-left`,className)}>{children}</div>
+    <div className={twMerge(`font-kumbh-sans text-dark-gunmetal text-base font-normal text-left`,className)}>{children}</div>
   )
 }
 

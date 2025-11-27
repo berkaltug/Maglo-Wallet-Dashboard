@@ -1,10 +1,8 @@
-import heroImage from "../assets/image.png";
 import FormInput from "../components/FormInput";
 import Text from "../components/Text";
 import Button from "../components/Button";
 import GoogleButton from "../components/GoogleButton";
 import AccountQuestionButton from "../components/AccountQuestionButton";
-import MagloLogo from "../components/MagloLogo";
 import { loginFormSchema } from "../helper/yupSchemas";
 import { useMutation } from "@tanstack/react-query";
 import {
@@ -19,6 +17,7 @@ import { useNavigate } from "react-router";
 import { login } from "../services/userService";
 import { useAppDispatch } from "../redux/store";
 import { loggedIn } from "../redux/userSlice";
+import LoginLayout from "./LoginLayout";
 
 function Login() {
   const { formValues, validationErrors, handleChange } = useForm(
@@ -51,11 +50,7 @@ function Login() {
   const goSignUp=()=>navigate('/register')
 
   return (
-    <div className="flex w-screen min-h-screen flex-col md:flex-row">
-      <div className="flex-1 grid  grid-cols-[1fr_auto_1fr] grid-rows-[1fr_4fr_1fr]">
-          <div className="row-1 col-2  pt-4 md:pt-10 lg:pt-17.5">
-            <MagloLogo />
-          </div>
+  <LoginLayout>
           <div className="row-2 col-2 self-center justify-self-center">
             <Text className="text-3xl">Sign In</Text>
             <Text className="mb-9 text-rhythm">
@@ -91,11 +86,7 @@ function Login() {
             <GoogleButton onPress={() => {}} className="mt-4" />
             <AccountQuestionButton onPress={goSignUp} />
           </div>
-      </div>
-      <div className="xl:block hidden">
-        <img src={heroImage} className="min-h-screen" alt="" />
-      </div>
-    </div>
+      </LoginLayout>
   );
 }
 
