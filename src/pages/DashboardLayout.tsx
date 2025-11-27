@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Outlet, useNavigate } from "react-router";
 import MagloLogo from "../components/MagloLogo";
 import DashboardSVG from "../assets/Dashboard.svg";

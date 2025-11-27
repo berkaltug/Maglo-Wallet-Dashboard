@@ -1,4 +1,3 @@
-import React from 'react';
 import { Navigate, Outlet } from 'react-router';
 import { useAppSelector, type RootState } from '../redux/store';
 

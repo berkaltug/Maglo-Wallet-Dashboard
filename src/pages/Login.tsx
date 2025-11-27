@@ -1,4 +1,3 @@
-import React from "react";
 import heroImage from "../assets/Image.png";
 import FormInput from "../components/FormInput";
 import Text from "../components/Text";

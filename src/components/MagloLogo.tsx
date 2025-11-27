@@ -1,4 +1,3 @@
-import React from "react";
 import magloLogo from '../assets/maglo-logo.svg';
 
 const MagloLogo = () => {

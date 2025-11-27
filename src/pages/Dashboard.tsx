@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import BalanceRow from "../components/BalanceRow";
 import CardSchema from "../components/CardSchema";
 import RecentTransactions from "../components/RecentTransactions";
