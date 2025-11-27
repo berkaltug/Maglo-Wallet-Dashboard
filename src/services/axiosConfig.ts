@@ -34,11 +34,10 @@ apiClient.interceptors.response.use(
     (response)=>response,
 async (error)=>{
     const request = error.config;
-    if(error.response?.status === 401 && !request._retry){
+    if(error.response?.status === 401 && !error.config?.url?.includes('/login') && !request._retry){
         request._retry=true
         try{
             const newToken=await refresh();
-            console.log("inside response interceptor",newToken)
             
             store.dispatch(refreshToken(newToken))
             request.headers["Authorization"] = `Bearer ${newToken}`;
@@ -47,4 +46,5 @@ async (error)=>{
             return Promise.reject(error)
         }
     }
+    return Promise.reject(error)
 })

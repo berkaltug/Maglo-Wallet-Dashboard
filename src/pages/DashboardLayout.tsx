@@ -38,7 +38,7 @@ const DashboardLayout = () => {
   };
 
   return (
-    <div className="w-screen min-h-screen flex">
+    <div className="max-w-screen min-h-screen flex">
       {/* sidebar */}
       <div
         className={`w-62 pt-7.5 pl-6.25 pr-6.25 pb-7.5 bg-lotion

@@ -6,6 +6,7 @@ interface ButtonProps {
   className?: string;
   children: ReactNode;
   loading?: boolean;
+  disabled: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -13,6 +14,7 @@ const Button: React.FC<ButtonProps> = ({
   onPress,
   children,
   loading,
+  disabled,
 }) => {
   return (
     <button
@@ -21,7 +23,7 @@ const Button: React.FC<ButtonProps> = ({
         className
       )}
       onClick={onPress}
-      disabled={loading}
+      disabled={loading || disabled}
     >
       {loading ? (
         <img src={Loading} className="animate-spin h-6" />

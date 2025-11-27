@@ -35,7 +35,6 @@ function Register() {
       navigate("/");
     },
     onError: (error) => {
-      console.log(error);
       toast.error(
         error?.response?.data?.details?.[0]?.message ||
           error?.response?.data?.message
@@ -95,6 +94,11 @@ function Register() {
           onPress={handleSubmit}
           className="mt-6"
           loading={mutation.isPending}
+          disabled={
+            !!validationErrors.email ||
+            !!validationErrors.fullName ||
+            !!validationErrors.password
+          }
         >
           Create Account
         </Button>

@@ -79,8 +79,8 @@ const CapitalChart: React.FC<CapitalChartProps> = ({
             <Text className="text-xs">Expenses</Text>
           </div>
           <select className="bg-cultured">
-            <option>Last 7 days</option>
             <option>Last 6 months</option>
+            <option>Last 7 days</option>
             </select>
         </div>
       </div>
